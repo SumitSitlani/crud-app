@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    ports:
+     - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=app
+    volumes:
+     - mysql1:/var/lib/mysql
+  django_app:
+    image: sumitsitlani/crud-app:2.0
+    restart: always
+    ports:
+     - 8080:8080
+    depends_on:
+     - "mysql"
+volumes:
+  mysql1:
+    driver: local
