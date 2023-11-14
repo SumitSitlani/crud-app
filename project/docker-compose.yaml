@@ -9,8 +9,8 @@ services:
       - MYSQL_DATABASE=app
     volumes:
      - mysql1:/var/lib/mysql
-  django_app:
-    image: sumitsitlani/crud-app:2.0
+  app:
+    image: sumitsitlani/crud-app:4.0
     restart: always
     ports:
      - 8080:8080
